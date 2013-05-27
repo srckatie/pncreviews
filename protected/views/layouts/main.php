@@ -19,13 +19,7 @@
 </head>
 
 <body>
-
-<div class="container" id="page">
-
-	<div id="header">
-		<div id="logo"><?php echo CHtml::encode(Yii::app()->name); ?></div>
-	</div><!-- header -->
-
+	<div id="fs-header">header, content blocks go here</div>
 	<div id="mainmenu">
 		<?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
@@ -48,7 +42,7 @@
 	<div class="clear"></div>
 
 	<div id="footer">
-		Copyright &copy; <?php echo date('Y'); ?> by PnCReviews.<br/>
+		Copyright &copy; <?php echo date('Y'); ?> by PnC Reviews.<br/>
 		All Rights Reserved.<br/>
 	</div><!-- footer -->
 

@@ -227,3 +227,20 @@ div.search-form
 {
 	background: #80CFFF;
 }
+
+#fs-header
+{
+    height: 120px;  
+	background: #ccc;
+
+
+}
+
+#right-column
+{
+position:absolute;
+top: 12px;
+right:0px;
+width:150px;
+background-color:#CCCCCC;
+}
