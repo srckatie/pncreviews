@@ -25,6 +25,7 @@ body
 #content
 {
     padding: 20px;
+	margin-right: 150px;
 }
 
 #sidebar
@@ -238,9 +239,10 @@ div.search-form
 
 #right-column
 {
-position:absolute;
-top: 12px;
-right:0px;
-width:150px;
-background-color:#CCCCCC;
+position: fixed;
+	float: right;
+    height: 100%;
+    width: 150px;
+    margin-top: 25px;
+	right: 0px;
 }

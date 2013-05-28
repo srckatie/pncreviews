@@ -37,6 +37,15 @@
 		)); ?><!-- breadcrumbs -->
 	<?php endif?>
 
+		<div id="right-column">
+	<?php for ($i=1; $i<=10; $i++) {?>
+		<div class = "column span-10 append-3 colborder">
+			<p>Item x</p>
+		</div>
+	<?php }?>
+	</div>
+
+	
 	<?php echo $content; ?>
 
 	<div class="clear"></div>
