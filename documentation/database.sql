@@ -1,6 +1,6 @@
-/*DROP database pnReviews;
-CREATE database pnReviews;*/
-USE pnReviews;
+/*DROP database pncReviews;
+CREATE database pncReviews;*/
+USE pncReviews;
 
 CREATE TABLE UserStatus (
     UserStatusID INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -13,6 +13,7 @@ CREATE TABLE User (
     UserID INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
 	Name VARCHAR(128) NOT NULL,
 	Email VARCHAR(128) NOT NULL,
+	Password VARCHAR(128) NOT NULL,
 	UserStatusID INTEGER NOT NULL,
 
 	CONSTRAINT FK_UserStatus_User FOREIGN KEY (UserStatusID)

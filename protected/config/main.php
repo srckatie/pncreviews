@@ -5,6 +5,31 @@
 
 // This is the main Web application configuration. Any writable
 // CWebApplication properties can be configured here.
+
+$services = getenv("VCAP_SERVICES");
+$services_json = json_decode($services,true);
+$mysql_config = $services_json["mysql-5.1"][0]["credentials"];
+
+if ($mysql_config["port"] > 0){
+    $databases = array();
+    
+    $databases['default']['default'] = array(
+		'connectionString' => 'mysql:host=' . $mysql_config["hostname"] . ':' . $mysql_config["port"] .  ';dbname=' . $mysql_config["name"],
+		'emulatePrepare' => true,
+		'username' => $mysql_config["user"],
+		'password' => $mysql_config["password"],
+		'charset' => 'utf8',
+    );
+} else {
+$databases = array(
+			'connectionString' => 'mysql:host=localhost;dbname=pncreviews',
+			'emulatePrepare' => true,
+			'username' => 'root',
+			'password' => '13241324',
+			'charset' => 'utf8',
+		);
+}
+
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'Pros and Cons Reviews',
@@ -51,14 +76,15 @@ return array(
 			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/testdrive.db',
 		),
 		*/
-		// uncomment the following to use a MySQL database
-		'db'=>array(
+		// uncomment the following to use a MySQL database.
+		'db'=>$databases
+		/*'db'=>array(
 			'connectionString' => 'mysql:host=localhost;dbname=pncreviews',
 			'emulatePrepare' => true,
 			'username' => 'root',
 			'password' => '13241324',
 			'charset' => 'utf8',
-		),
+		)*/,
 			'errorHandler'=>array(
 			// use 'site/error' action to display errors
 			'errorAction'=>'site/error',

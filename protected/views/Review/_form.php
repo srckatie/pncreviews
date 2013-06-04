@@ -33,7 +33,6 @@
 			$list = CHtml::listData(Store::model()->findAll(array('order' => 'Name')), 'StoreID', 'Name');
 			echo $form->dropDownList($model,'StoreID',$list); 
 		?>
-		<?php //echo $form->textField($model,'StoreID'); ?>
 		<?php echo $form->error($model,'StoreID'); ?>
 	</div>
 
