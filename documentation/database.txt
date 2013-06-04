@@ -1,0 +1,91 @@
+pnReviews
+
+Review
++
+ReviewID PK
+UserID
+CategoryID
+StoreID
+ReviewStatusID
+Title
+ProdLink
+PicLink
+Price
+Text (RTF)
++
+
+
+User
++
+UserID PK
+Name
+Email
+UserStatusID
++
+
+UserStatus
++
+UserStatusID PK
+Name
++
+
+Role
++
+RoleID PK
+Name
++
+
+SiteAction
++
+SiteActionID PK
+Name
++
+
+RoleAction
++
+RoleActionID PK
+RoleID
+SiteActionID
++
+
+Store
++
+StoreID PK
+Name
+URL
++
+
+Category
++
+CategoryID PK
+Name
++
+
+Tag
++
+TagID PK
+Name
++
+
+ReviewTag
++
+ReviewTagID PK
+ReviewID
+TagID
++
+
+ReviewStatus
++
+ReviewStatusID PK
+Status
++
+
+Comment
++
+CommentID PK
+ReviewID
+UserID
+Text
++
+
+
