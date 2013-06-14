@@ -31,6 +31,8 @@ $databases = array(
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'Pros and Cons Reviews',
+	
+	'defaultController'=>'review',
 
 	// preloading 'log' component
 	'preload'=>array('log'),
@@ -108,6 +110,6 @@ return array(
 	// using Yii::app()->params['paramName']
 	'params'=>array(
 		// this is used in contact page
-		'adminEmail'=>'katie@pnReviews.com',
+		'adminEmail'=>'katie@pncReviews.com',
 	),
 );
