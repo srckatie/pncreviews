@@ -1,6 +1,6 @@
-DROP database IF EXISTS pncReviews;
-CREATE database pncReviews;
-USE pncReviews;
+DROP database IF EXISTS pncreviews;
+CREATE database pncreviews;
+USE pncreviews;
 
 CREATE TABLE userstatus (
     UserStatusID INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
