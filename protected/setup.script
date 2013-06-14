@@ -1,0 +1,6 @@
+mkdir runtime
+chmod 777 runtime
+echo deny from all > .htaccess
+mkdir ../assets
+chmod 777 ../assets
+echo deny from all > ../assets/.htaccess
