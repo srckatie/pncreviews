@@ -14,15 +14,4 @@
 		$salt .= strtr(substr(base64_encode($rand), 0, 22), array('+' => '.'));
 		return $salt;
 	}
-
-	echo crypt('13241324', blowfishSalt());
-	/*
-	$test = new CTestEntity;
-	foreach ($test->GetAttributes() as $key=>$value) {
-		print ($key ."==>". $value);
-	}
-	
-	class CTestEntity extends CEntity{
-		public $info = 10;
-	}*/
 ?>

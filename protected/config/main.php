@@ -11,10 +11,8 @@ $services_json = json_decode($services,true);
 $mysql_config = $services_json["mysql-5.1"][0]["credentials"];
 
 if ($mysql_config["port"] > 0){
-    $databases = array();
-    
-    $databases['default']['default'] = array(
-		'connectionString' => 'mysql:host=' . $mysql_config["hostname"] . ':' . $mysql_config["port"] .  ';dbname=' . $mysql_config["name"],
+    $databases = array(
+		'connectionString' => 'mysql:host=' . $mysql_config["hostname"] .  ';dbname=' . $mysql_config["name"] . ';port=' . $mysql_config["port"] . ';',
 		'emulatePrepare' => true,
 		'username' => $mysql_config["user"],
 		'password' => $mysql_config["password"],
