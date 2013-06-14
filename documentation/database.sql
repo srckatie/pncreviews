@@ -1,5 +1,5 @@
-/*DROP database pncReviews;
-CREATE database pncReviews;*/
+DROP database IF EXISTS pncReviews;
+CREATE database pncReviews;
 USE pncReviews;
 
 CREATE TABLE userstatus (
@@ -67,6 +67,7 @@ CREATE TABLE review (
 	/*FULLTEXT INDEX I_Review_ReviewText (ReviewText),*/
 );
 
-INSERT INTO userstatus(Name) Values('active')
-INSERT INTO user(Name, Email, Password, UserStatusID) Values('andrey','andrey.dev@gmail.com','$2a$13$sdl.bIs//vAcv96Au8WsN.2mm4YcfWgDyXyo7AqXsxhhO9.CT9D4m',1)
+INSERT INTO userstatus(Name) Values('active');
+INSERT INTO user(Name, Email, Password, UserStatusID) Values('andrey','andrey.dev@gmail.com','$2a$13$sdl.bIs//vAcv96Au8WsN.2mm4YcfWgDyXyo7AqXsxhhO9.CT9D4m',1);
+INSERT INTO user(Name, Email, Password, UserStatusID) Values('katie','katie@pncreviews.com','$2a$13$sdl.bIs//vAcv96Au8WsN.2mm4YcfWgDyXyo7AqXsxhhO9.CT9D4m',1);
 
