@@ -68,7 +68,17 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'ReviewText'); ?>
-		<?php echo $form->textArea($model,'ReviewText',array('rows'=>6, 'cols'=>50)); ?>
+		
+		<?php $this->widget(
+        'ext.widgets.redactorjs.Redactor', array( 
+            'editorOptions' => array( 
+                'imageUpload' => Yii::app()->createAbsoluteUrl('roundtrip/upload'),
+                'imageGetJson' => Yii::app()->createAbsoluteUrl('roundtrip/listimages')
+                 ),
+            'model' => $model, 
+            'attribute' => 'ReviewText' ));
+ 
+                ?>
 		<?php echo $form->error($model,'ReviewText'); ?>
 	</div>
 

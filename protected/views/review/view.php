@@ -30,6 +30,6 @@ $this->menu=array(
 		'ProdLink',
 		'PicLink',
 		'Price',
-		'ReviewText',
+		'ReviewText:html',
 	),
 )); ?>
