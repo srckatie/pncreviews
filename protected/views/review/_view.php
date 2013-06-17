@@ -3,49 +3,12 @@
 /* @var $data Review */
 ?>
 
-<div class="view">
+	<section class = "column span-10 append-3 border">
+		<p>
+			<img src="images/itemimage.gif" class="right top" alt="Item image" height="180" width="190">
+			<H4><?php echo CHtml::encode($data->Title); ?></H4>
+			<?php echo CHtml::encode($data->ReviewText); ?>
+			<a href="">read more</a>
+		</p>
+	</section>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('ReviewID')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->ReviewID), array('view', 'id'=>$data->ReviewID)); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('UserID')); ?>:</b>
-	<?php echo CHtml::encode($data->UserID); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('CategoryID')); ?>:</b>
-	<?php echo CHtml::encode($data->CategoryID); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('StoreID')); ?>:</b>
-	<?php echo CHtml::encode($data->StoreID); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('ReviewStatusID')); ?>:</b>
-	<?php echo CHtml::encode($data->ReviewStatusID); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('Title')); ?>:</b>
-	<?php echo CHtml::encode($data->Title); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('ProdLink')); ?>:</b>
-	<?php echo CHtml::encode($data->ProdLink); ?>
-	<br />
-
-	<?php /*
-	<b><?php echo CHtml::encode($data->getAttributeLabel('PicLink')); ?>:</b>
-	<?php echo CHtml::encode($data->PicLink); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('Price')); ?>:</b>
-	<?php echo CHtml::encode($data->Price); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('ReviewText')); ?>:</b>
-	<?php echo CHtml::encode($data->ReviewText); ?>
-	<br />
-
-	*/ ?>
-
-</div>
