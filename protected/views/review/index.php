@@ -5,11 +5,6 @@
 $this->breadcrumbs=array(
 	'Reviews',
 );
-
-$this->menu=array(
-	array('label'=>'Create Review', 'url'=>array('create')),
-	array('label'=>'Manage Review', 'url'=>array('admin')),
-);
 ?>
 
 <h1>Reviews</h1>
@@ -18,3 +13,4 @@ $this->menu=array(
 	'dataProvider'=>$dataProvider,
 	'itemView'=>'_view',
 )); ?>
+

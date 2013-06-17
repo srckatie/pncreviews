@@ -7,10 +7,6 @@ $this->breadcrumbs=array(
 	'Create',
 );
 
-$this->menu=array(
-	array('label'=>'List Review', 'url'=>array('index')),
-	array('label'=>'Manage Review', 'url'=>array('admin')),
-);
 ?>
 
 <h1>Create Review</h1>

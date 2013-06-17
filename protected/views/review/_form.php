@@ -16,12 +16,6 @@
 	<?php echo $form->errorSummary($model); ?>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'UserID'); ?>
-		<?php echo $form->textField($model,'UserID'); ?>
-		<?php echo $form->error($model,'UserID'); ?>
-	</div>
-	
-	<div class="row">
 		<?php echo $form->labelEx($model,'CategoryID'); ?>
 		<?php 
 			$list = CHtml::listData(Category::model()->findAll(array('order' => 'Name')), 'CategoryID', 'Name');

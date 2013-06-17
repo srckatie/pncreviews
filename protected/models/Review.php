@@ -49,7 +49,7 @@ class Review extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('UserID, CategoryID, StoreID, ReviewStatusID, Title, ProdLink, PicLink, Price', 'required'),
+			array('CategoryID, StoreID, ReviewStatusID, Title, ProdLink, PicLink, Price', 'required'),
 			array('UserID, CategoryID, StoreID, ReviewStatusID', 'numerical', 'integerOnly'=>true),
 			array('Title, ProdLink, PicLink', 'length', 'max'=>128),
 			array('Price', 'length', 'max'=>10),
@@ -96,6 +96,29 @@ class Review extends CActiveRecord
 		);
 	}
 
+	/**
+	 *
+	 *
+	 *
+	 */
+	public function beforeSave()
+	{
+		if (parent::beforeSave())
+		{
+			if ($this->isNewRecord)
+			{
+				//$this->create_time = $this->update_time = time();
+				//$this->UserID = Yii::app()->user->id;
+			}
+			else
+			{
+				$this->update_time = time();
+			}
+			return true;
+		}
+		else
+			return false;
+	}
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.
 	 * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
