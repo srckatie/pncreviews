@@ -23,7 +23,10 @@
 	
 	<div class="row">
 		<?php echo $form->labelEx($model,'CategoryID'); ?>
-		<?php echo $form->textField($model,'CategoryID'); ?>
+		<?php 
+			$list = CHtml::listData(Category::model()->findAll(array('order' => 'Name')), 'CategoryID', 'Name');
+			echo $form->dropDownList($model,'CategoryID',$list);
+		?>
 		<?php echo $form->error($model,'CategoryID'); ?>
 	</div>
 
@@ -38,7 +41,10 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'ReviewStatusID'); ?>
-		<?php echo $form->textField($model,'ReviewStatusID'); ?>
+		<?php 
+			$list = CHtml::listData(ReviewStatus::model()->findAll(array('order'=> 'Name')), 'ReviewStatusID','Name');
+			echo $form->dropDownList($model, 'ReviewStatusID', $list);
+		?>
 		<?php echo $form->error($model,'ReviewStatusID'); ?>
 	</div>
 
