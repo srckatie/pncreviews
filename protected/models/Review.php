@@ -76,7 +76,18 @@ class Review extends CActiveRecord
 			'reviewStatus' => array(self::BELONGS_TO, 'Reviewstatus', 'ReviewStatusID'),
 		);
 	}
-
+	
+	/**
+	 * @return string the URL that shows the detail of the post
+	 */
+	public function getUrl()
+	{
+		return Yii::app()->createUrl('review/view', array(
+			'id'=>$this->ReviewID,
+			'title'=>$this->Title,
+		));
+	}
+	
 	/**
 	 * @return array customized attribute labels (name=>label)
 	 */
@@ -112,7 +123,7 @@ class Review extends CActiveRecord
 			}
 			else
 			{
-				$this->update_time = time();
+				//$this->update_time = time();
 			}
 			return true;
 		}
