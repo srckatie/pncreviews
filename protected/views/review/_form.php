@@ -72,8 +72,8 @@
 		<?php $this->widget(
         'ext.widgets.redactorjs.Redactor', array( 
             'editorOptions' => array( 
-                'imageUpload' => Yii::app()->createAbsoluteUrl('roundtrip/upload'),
-                'imageGetJson' => Yii::app()->createAbsoluteUrl('roundtrip/listimages')
+                'imageUpload' => Yii::app()->createAbsoluteUrl('review/ImageUpload'),
+                'imageGetJson' => Yii::app()->createAbsoluteUrl('review/listimages')
                  ),
             'model' => $model, 
             'attribute' => 'ReviewText' ));

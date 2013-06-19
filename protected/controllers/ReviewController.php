@@ -32,7 +32,7 @@ class ReviewController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','update', 'imageupload'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -170,4 +170,24 @@ class ReviewController extends Controller
 			Yii::app()->end();
 		}
 	}
+	
+	/**
+	 * Image upload action.
+	 * 
+	 */
+	public function actionImageUpload()
+	{
+		$image = EUploadedImage::getInstanceByName('file');
+		$image->maxWidth = 600;
+		$image->maxHeight = 300;
+		 
+		if ($image->save())
+			echo 'ok!';
+		else
+			echo 'error';
+			
+		/*$image = CUploadedFile::getInstanceByName("file");
+		echo $image->name;*/
+	}
+	
 }
