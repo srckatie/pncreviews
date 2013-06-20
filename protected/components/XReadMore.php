@@ -69,7 +69,7 @@ class XReadMore extends CWidget
 	 * @var boolean determines whether to return plain text or html text
 	 * @since 1.0
 	 */
-	public $stripTags = false;
+	public $stripTags = true;
 
 	/**
 	 * @var int the maximal count of character before it is truncated
