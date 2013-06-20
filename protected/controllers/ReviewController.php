@@ -152,6 +152,7 @@ class ReviewController extends Controller
 	 */
 	public function loadModel($id)
 	{
+		Yii::app()->session['reviewmodel'] = $id;
 		$model=Review::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
@@ -177,14 +178,24 @@ class ReviewController extends Controller
 	 */
 	public function actionImageUpload()
 	{
-		$image = EUploadedImage::getInstanceByName('file');
-		$image->maxWidth = 600;
-		$image->maxHeight = 300;
-		 
-		if ($image->save())
-			echo 'ok!';
-		else
-			echo 'error';
+		try {
+			
+			$image = EUploadedImage::getInstanceByName('file');
+			$image->maxWidth = 600;
+			$image->maxHeight = 300;
+			$imgpath = "images/" . Yii::app()->session['reviewmodel'];
+			mkdir(Yii::getPathOfAlias('webroot') . '/' . $imgpath);
+			$imgpath = $imgpath . "/" . $image->getName();
+			if ($image->saveas($imgpath))
+				echo CHtml::image(Yii::app()->baseUrl . '/' . $imgpath);
+			else
+				throw new CException('File upload/save error. Please contact administrator');
+		}
+		catch (CException $e) {
+			//$cs = Yii::app()->clientScript;
+			echo '<script type="text/javascript">alert("Error:'. $e->getMessage() .'");</script>';
+			//$cs->registerScript('Error message',$e->getMessage() , CClientScript::POS_READY);
+		}		
 			
 		/*$image = CUploadedFile::getInstanceByName("file");
 		echo $image->name;*/

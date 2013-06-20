@@ -168,7 +168,36 @@ class EUploadedImage extends CComponent
 		else
 			self::$_files[$key] = new EUploadedImage($names, $tmp_names, $types, $sizes, $errors);
 	}
-
+	
+	protected function checkErrors($error)
+	{
+		switch($error) {
+			case UPLOAD_ERR_OK:
+				break;
+			case UPLOAD_ERR_INI_SIZE:
+				throw new CException('File is too large for upload');
+				break;
+			case UPLOAD_ERR_FORM_SIZE:
+				throw new CException('File is too large for upload');
+				break;
+			case UPLOAD_ERR_PARTIAL:
+				throw new CException('File upload failed. Please try again');
+				break;
+			case UPLOAD_ERR_NO_FILE:
+				throw new CException('File upload failed. Please try again');
+				break;
+			case UPLOAD_ERR_NO_TMP_DIR:
+				throw new CException('Files cannot be uploaded. Please contact administrator');
+				break;
+			case UPLOAD_ERR_CANT_WRITE:
+				throw new CException('Files cannot be uploaded. Please contact administrator');
+				break;
+			case UPLOAD_ERR_EXTENSION:
+				throw new CException('Files cannot be uploaded. Please contact administrator');
+				break;
+		}
+		
+	}
 	/**
 	 * Constructor.
 	 * Use {@link getInstance} to get an instance of an uploaded file.
@@ -185,6 +214,8 @@ class EUploadedImage extends CComponent
 		$this->_type=$type;
 		$this->_size=$size;
 		$this->_error=$error;
+		$this->checkErrors($error);
+		if ($error != 0) throw new CException('File upload error');
 		// load image info
 		$image_info = getimagesize($tempName);
 		if ($image_info[2] === IMAGETYPE_JPEG || $image_info[2] === IMAGETYPE_PNG || $image_info[2] === IMAGETYPE_GIF)
