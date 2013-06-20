@@ -181,10 +181,10 @@ class ReviewController extends Controller
 		try {
 			
 			$image = EUploadedImage::getInstanceByName('file');
-			$image->maxWidth = 600;
-			$image->maxHeight = 300;
+			$image->maxWidth = 800;
+			$image->maxHeight = 600;
 			$imgpath = "images/" . Yii::app()->session['reviewmodel'];
-			mkdir(Yii::getPathOfAlias('webroot') . '/' . $imgpath);
+			@mkdir(Yii::getPathOfAlias('webroot') . '/' . $imgpath);
 			$imgpath = $imgpath . "/" . $image->getName();
 			if ($image->saveas($imgpath))
 				echo CHtml::image(Yii::app()->baseUrl . '/' . $imgpath);
