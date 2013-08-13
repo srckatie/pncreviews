@@ -75,7 +75,7 @@ class XReadMore extends CWidget
 	 * @var int the maximal count of character before it is truncated
 	 * @since 1.0
 	 */
-	public $maxChar = 300;
+	public $maxChar = 150;
 
 	/**
 	 * @var string the separator to use after maxChar is satisfied
