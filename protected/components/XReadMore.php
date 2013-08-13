@@ -75,7 +75,7 @@ class XReadMore extends CWidget
 	 * @var int the maximal count of character before it is truncated
 	 * @since 1.0
 	 */
-	public $maxChar = 400;
+	public $maxChar = 300;
 
 	/**
 	 * @var string the separator to use after maxChar is satisfied
@@ -136,6 +136,7 @@ class XReadMore extends CWidget
 		$tmp = $text;
 		$len = $this->maxChar;
 
+		
 		if($this->model !== null)
 		{
 			$attribute = $this->attribute;
@@ -145,21 +146,23 @@ class XReadMore extends CWidget
 		$len = strpos($tmp,$this->cut);
 		
 		if ($len == 0) $len = $this->maxChar;
-		
+				
 		if($this->stripTags)
 			$tmp = trim(strip_tags($tmp));
-				
+		
+		
 		if(strlen($tmp)>$len)
 		{
 			$tmp = substr($tmp, 0, stripos($tmp, $this->separator, $len)) . "...";
 		}
-
+		
+		
 		if(!$this->stripTags)
 		{
 			$purifier = new CHtmlPurifier;
 			$tmp = $purifier->purify($tmp);
 		}
-
+		
 		if($this->showLink)
 		{
 			$tmp .=$this->separatorLink . CHtml::link($this->linkText, $this->linkUrl, $this->linkHtmlOptions);
